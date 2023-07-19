@@ -276,12 +276,14 @@ figure .light-text {
 }
 .play-img-container {
   position: relative;
-  height: 478px;
+  height: 100%;
   width: 35%;
 }
 .main-img {
   height: 100%;
   width: 100%;
+  border-radius: 10px;
+  border: 2px solid goldenrod;
 }
 .badge-img {
   position: absolute;
@@ -353,6 +355,7 @@ figure .light-text {
   display: flex;
   flex-direction: column;
   gap: 100px;
+  align-items: center;
   padding: 0px 70px;
   margin-bottom: 80px;
 }
@@ -363,16 +366,11 @@ figure .light-text {
 }
 .catagory1 {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   gap: 30px;
+  justify-content: center;
 }
-.catagory2 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-}
-.catagory1 div,
-.catagory2 div {
+.catagory1 div {
   display: flex;
   gap: 20px;
   align-items: center;
@@ -380,6 +378,11 @@ figure .light-text {
   border-radius: 50px;
   border: 2px solid transparent;
   padding: 5px;
+  grid-column: span 2;
+  transition: translate .5s;
+}
+.catagory1 div:nth-last-child(4) {
+	grid-column: 2 / span 2;
 }
 .game-name {
   margin: 0;
@@ -390,13 +393,13 @@ figure .light-text {
   font-weight: 600;
   line-height: normal;
 }
-.catagory1 div:hover,
-.catagory2 div:hover {
+.catagory1 div:hover {
   background-color: rgb(185, 202, 226);
   color: #ff42a5;
   border: 2px solid #f948b2;
   cursor: pointer;
   transform: scale(1.05);
+  translate: 0 -20px;
 }
 .game-logo {
   height: 60%;
@@ -478,8 +481,6 @@ footer .logo-container .logo-img {
   }
   .main-img {
     object-fit: cover;
-    border-radius: 10px;
-    border: 2px solid goldenrod;
   }
   .badge-img {
     left: -20px;
@@ -522,12 +523,17 @@ footer .logo-container .logo-img {
     margin: 0;
     padding: 0;
   }
-  .catagory-section>div{
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: center;
-     transform: scale(.8);
+  .catagory1{
+    grid-template-columns: repeat(3,1fr);
+    transform: scale(.6);
   }
+  .catagory1 div{
+    grid-column: span 1;
+  }
+  .catagory1 div:nth-last-child(4){
+      grid-column: span 1;
+  }
+
   .catagory-section .common-font {
     margin-bottom: 15px;
   }
@@ -617,7 +623,7 @@ footer .logo-container .logo-img {
   .footer-menus {
     gap: 50px;
   }
-  .catagory-section > div {
+  .catagory1{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
